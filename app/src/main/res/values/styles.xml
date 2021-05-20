@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--BottomSheet-->
+    <style name="MyBottomSheet" parent="Widget.MaterialComponents.BottomSheet">
+        <item name="android:background">?colorOnBottomSheetBackground</item>
+    </style>
+    <style name="BottomSheetHeader">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+    <style name="BottomSheetDescription">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+
+</resources>

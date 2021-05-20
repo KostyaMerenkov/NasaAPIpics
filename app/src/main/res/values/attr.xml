@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--BottomSheet-->
+    <attr format="reference" name="colorOnBottomSheetBackground"/>
+    <attr format="reference" name="bottomSheetStyle"/>
+    <attr format="reference" name="bottomSheetHeaderStyle"/>
+    <attr format="reference" name="bottomSheetDescriptionStyle"/>
+</resources>
