@@ -17,6 +17,40 @@
         <item name="bottomSheetStyle">@style/MyBottomSheet</item>
     </style>
 
+    <style name="Theme.Main.Orange">
+        <item name="colorOnSurface">#BF5208</item>
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">#9C4600</item>
+        <item name="colorPrimaryVariant">#A82A02</item>
+        <item name="colorOnPrimary">#FF9564</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">#596000</item>
+        <item name="colorSecondaryVariant">#61670E</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+        <item name="colorOnBottomSheetBackground">?colorOnPrimary</item>
+        <item name="bottomSheetStyle">@style/MyBottomSheet</item>
+    </style>
+
+    <style name="Theme.Main.Blue">
+        <item name="colorOnSurface">#8F9BEC</item>
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">#3F4687</item>
+        <item name="colorPrimaryVariant">#0015AC</item>
+        <item name="colorOnPrimary">#9CCAFF</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">#55555C</item>
+        <item name="colorSecondaryVariant">#360EA3</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+        <item name="colorOnBottomSheetBackground">?colorOnPrimary</item>
+        <item name="bottomSheetStyle">@style/MyBottomSheet</item>
+    </style>
+
     <style name="Theme.Black" parent="Theme.MaterialComponents.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_200</item>
