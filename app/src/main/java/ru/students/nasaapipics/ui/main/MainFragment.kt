@@ -114,6 +114,13 @@ class MainFragment : Fragment() {
         return super.onOptionsItemSelected(item)
     }
 
+//    private fun startSettings() {
+//        Toast.makeText(context, "Settings", Toast.LENGTH_SHORT).show()
+//        vb.bottomAppBar.replaceMenu(R.menu.menu_bottom_bar_settings)
+//        vb.fab.hide()
+//        //vb.fab.visibility = View.GONE
+//    }
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
@@ -137,8 +144,7 @@ class MainFragment : Fragment() {
                         hdurl?.let { showSuccess(serverResponseData, it) } ?: run {
                             showError("На данный день не hd изображения.")
                         }
-                    } else
-                    showSuccess(serverResponseData, url)
+                    } else showSuccess(serverResponseData, url)
                 }
             }
             is NasaServerResults.Loading -> {
@@ -171,15 +177,19 @@ class MainFragment : Fragment() {
     }
 
     private fun showSuccess(serverResponseData: NasaServerResponseData, url: String) {
-        vb.progressMain.visibility = View.GONE
+
         //Coil в работе: достаточно вызвать у нашего ImageView
         //нужную extension-функцию и передать ссылку и заглушки для placeholder
         vb.imageView.load(url) {
             lifecycle(this@MainFragment)
             error(R.drawable.no_image)
             placeholder(R.drawable.no_image)
+            listener { _, _ ->
+                vb.progressMain.visibility = View.GONE
+                vb.imageView.visibility = View.VISIBLE
+            }
         }
-        vb.imageView.visibility = View.VISIBLE
+
         vb.bottomSheetInclude.bottomSheetDescriptionHeader.text = serverResponseData.title
         vb.bottomSheetInclude.bottomSheetDescription.text = serverResponseData.explanation
         vb.bottomSheetInclude.bottomSheetContainer.visibility = View.VISIBLE
