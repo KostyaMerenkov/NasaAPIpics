@@ -7,144 +7,147 @@
     android:layout_height="match_parent"
     tools:context=".ui.main.MainFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/input_layout"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="5dp"
-            android:clipToPadding="true"
-            android:hint="@string/search_wiki"
-            app:boxCornerRadiusBottomEnd="10dp"
-            app:boxCornerRadiusBottomStart="10dp"
-            app:boxCornerRadiusTopEnd="10dp"
-            app:boxCornerRadiusTopStart="10dp"
-            app:counterEnabled="true"
-            app:counterMaxLength="25"
-            app:endIconCheckable="true"
-            app:endIconContentDescription="Wikipedia"
-            app:endIconDrawable="@drawable/ic_wikipedia"
-            app:endIconMode="custom"
-            app:helperText="Вы можете совершить поиск по Википедии!"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:layout_editor_absoluteX="8dp">
+            android:layout_height="wrap_content">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/input_editText"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_layout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:singleLine="true" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:clipToPadding="true"
+                android:hint="@string/search_wiki"
+                app:boxCornerRadiusBottomEnd="10dp"
+                app:boxCornerRadiusBottomStart="10dp"
+                app:boxCornerRadiusTopEnd="10dp"
+                app:boxCornerRadiusTopStart="10dp"
+                app:counterEnabled="true"
+                app:counterMaxLength="25"
+                app:endIconCheckable="true"
+                app:endIconContentDescription="Wikipedia"
+                app:endIconDrawable="@drawable/ic_wikipedia"
+                app:endIconMode="custom"
+                app:helperText="Вы можете совершить поиск по Википедии!"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:layout_editor_absoluteX="8dp">
 
-        <com.google.android.material.chip.ChipGroup
-            android:id="@+id/chipGroup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="5dp"
-            app:flow_horizontalAlign="start"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/input_layout"
-            app:singleSelection="true">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/input_editText"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:singleLine="true" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/today"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipGroup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Today" />
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/input_layout"
+                app:singleSelection="true"
+                app:flow_horizontalAlign="start">
+
+                <com.google.android.material.chip.Chip
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:id="@+id/today"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Today" />
+
+                <com.google.android.material.chip.Chip
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:id="@+id/yesterday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Yesterday" />
+
+                <com.google.android.material.chip.Chip
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:id="@+id/two_days_ago"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Two days ago" />
+
+            </com.google.android.material.chip.ChipGroup>
 
             <com.google.android.material.chip.Chip
-                android:id="@+id/yesterday"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:id="@+id/chip_hd"
+                android:gravity="end"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Yesterday" />
+                android:layout_marginEnd="5dp"
+                android:text="HD"
+                app:layout_constraintBottom_toBottomOf="@+id/chipGroup"
+                app:layout_constraintEnd_toEndOf="parent"
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/two_days_ago"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Two days ago" />
+                app:layout_constraintTop_toTopOf="@+id/chipGroup" />
 
-        </com.google.android.material.chip.ChipGroup>
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip_hd"
-            style="@style/Widget.MaterialComponents.Chip.Filter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="5dp"
-            android:gravity="end"
-            android:text="HD"
-            app:layout_constraintBottom_toBottomOf="@+id/chipGroup"
-            app:layout_constraintEnd_toEndOf="parent"
-
-            app:layout_constraintTop_toTopOf="@+id/chipGroup" />
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/chipGroup">
-
-
-            <ImageView
-                android:id="@+id/image_view"
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="450dp"
-                android:layout_gravity="center"
-                android:contentDescription="Picture of the day"
-                android:scaleType="centerCrop"
-                android:visibility="visible"
-                app:layout_anchorGravity="center"
-                 />
+                android:layout_height="match_parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/chipGroup">
 
-            <ProgressBar
-                android:id="@+id/progress_main"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_gravity="center"
-                android:visibility="invisible" />
 
-        </FrameLayout>
+                <ImageView
+                    android:id="@+id/image_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:contentDescription="Picture of the day"
+                    android:scaleType="centerCrop"
+                    android:visibility="invisible"
+                    app:layout_anchorGravity="center"
+                    app:srcCompat="@drawable/no_image" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                <ProgressBar
+                    android:id="@+id/progress_main"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:visibility="invisible" />
+            </FrameLayout>
 
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <include
+        android:id="@+id/bottom_sheet_include"
+        layout="@layout/bottom_sheet_main" />
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottom_app_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        app:backgroundTint="?colorPrimary"
+        app:backgroundTint="@color/design_default_color_primary"
         app:fabAlignmentMode="center"
-        app:navigationIcon="@android:drawable/ic_menu_sort_by_size" />
+        app:hideOnScroll="true"
+        app:navigationIcon="@drawable/ic_hamburger_menu_bottom_bar"  />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="?colorSecondary"
-        android:backgroundTintMode="add"
+        android:backgroundTint="@color/teal_700"
         app:layout_anchor="@id/bottom_app_bar"
-        app:srcCompat="@drawable/outline_add_24"
+        app:srcCompat="@drawable/ic_plus_fab"
         app:tint="#FFFFFF" />
 
-    <include
-        android:id="@+id/bottom_sheet_include"
-        layout="@layout/bottom_sheet_main"
-        app:layout_anchor="@+id/constraintLayout"
-        app:layout_anchorGravity="center" />
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
+

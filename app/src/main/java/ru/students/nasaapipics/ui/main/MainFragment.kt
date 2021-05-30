@@ -1,7 +1,5 @@
 package ru.students.nasaapipics.ui.main
 
-import android.app.Dialog
-import android.app.DialogFragment
 import android.content.DialogInterface
 import android.content.Intent
 import android.net.Uri
@@ -22,7 +20,8 @@ import ru.students.nasaapipics.R
 import ru.students.nasaapipics.api.NasaServerResponseData
 import ru.students.nasaapipics.api.NasaServerResults
 import ru.students.nasaapipics.databinding.MainFragmentBinding
-import ru.students.nasaapipics.navigation.BottomNavigationDrawerFragment
+import ru.students.nasaapipics.navigation.main.BottomNavigationDrawerFragment
+import ru.students.nasaapipics.ui.main.viewpager.ViewPagerActivity
 import java.time.LocalDate
 
 class MainFragment : Fragment() {
@@ -103,7 +102,10 @@ class MainFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.app_bar_fav -> Toast.makeText(context, "Favourite", Toast.LENGTH_SHORT).show()
+            R.id.app_bar_fav -> {
+                Toast.makeText(context, "Favourite", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(context, ViewPagerActivity::class.java))
+            }
             R.id.app_bar_settings -> Toast.makeText(context, "Settings", Toast.LENGTH_SHORT).show()
             android.R.id.home -> {
                 activity?.let {
@@ -204,14 +206,14 @@ class MainFragment : Fragment() {
                 isMain = false
                 vb.bottomAppBar.navigationIcon = null
                 vb.bottomAppBar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_END
-                vb.fab.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.outline_subdirectory_arrow_left_24))
+                vb.fab.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_back_fab))
                 vb.bottomAppBar.replaceMenu(R.menu.menu_bottom_bar_second)
             } else {
                 isMain = true
                 vb.bottomAppBar.navigationIcon =
-                    ContextCompat.getDrawable(context, R.drawable.outline_menu_24)
+                    ContextCompat.getDrawable(context, R.drawable.ic_hamburger_menu_bottom_bar)
                 vb.bottomAppBar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_CENTER
-                vb.fab.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.outline_add_24))
+                vb.fab.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_plus_fab))
                 vb.bottomAppBar.replaceMenu(R.menu.menu_bottom_bar)
             }
         }
