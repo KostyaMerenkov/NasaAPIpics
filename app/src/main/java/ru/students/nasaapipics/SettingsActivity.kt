@@ -1,5 +1,6 @@
 package ru.students.nasaapipics
 
+import android.app.Activity
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -26,8 +27,10 @@ class SettingsActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        super.onBackPressed()
+        setResult(Activity.RESULT_OK, intent)
+        finish();
         //TODO: preference listener and activity update
+
 //        val tempIntent = intent;
 //        tempIntent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
 //        finish();
@@ -42,7 +45,8 @@ class SettingsActivity : AppCompatActivity() {
 
         val darkTheme = sp.getBoolean("dark_theme", false)
         val themes = sp.getString("themes", resources.getString(R.string.standard))
-        Toast.makeText(this, "themes=$themes", Toast.LENGTH_SHORT).show()
+        //Toast.makeText(this, "darkTheme=$darkTheme", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "theme=$themes", Toast.LENGTH_SHORT).show()
         if (darkTheme) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
         } else AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
@@ -51,6 +55,7 @@ class SettingsActivity : AppCompatActivity() {
             "orange" -> setTheme(R.style.Theme_Main_Orange)
             "blue" -> setTheme(R.style.Theme_Main_Blue)
         }
+        //Toast.makeText(this, "themes $themes\t string " + resources.getString(R.string.orange), Toast.LENGTH_SHORT).show()
     }
 
     class SettingsFragment : PreferenceFragmentCompat() {
