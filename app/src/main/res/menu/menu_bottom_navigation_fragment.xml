@@ -13,5 +13,13 @@
             android:id="@+id/navigation_settings"
             android:icon="@android:drawable/ic_menu_preferences"
             android:title="@string/Settings" />
+        <item
+            android:id="@+id/navigation_animations"
+            android:icon="@android:drawable/alert_dark_frame"
+            android:title="@string/Animations" />
+        <item
+            android:id="@+id/navigation_animations_bonus"
+            android:icon="@android:drawable/alert_dark_frame"
+            android:title="Анимации (ConstraintSet)" />
     </group>
 </menu>

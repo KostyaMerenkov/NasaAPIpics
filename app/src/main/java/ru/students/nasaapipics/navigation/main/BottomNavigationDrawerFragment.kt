@@ -6,7 +6,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import ru.students.nasaapipics.ActivityConstraintSetAnimation
+import ru.students.nasaapipics.AnimationsActivity
 import ru.students.nasaapipics.R
+import ru.students.nasaapipics.SettingsActivity
 import ru.students.nasaapipics.databinding.DrawerBottomBinding
 import ru.students.nasaapipics.ui.main.bottomnavigationview.BottomNavigationActivity
 import ru.students.nasaapipics.ui.main.viewpager.ViewPagerActivity
@@ -37,6 +40,21 @@ class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
                 R.id.navigation_two -> {
                     Toast.makeText(context, "2", Toast.LENGTH_SHORT).show()
                     startActivity(Intent(context, ViewPagerActivity()::class.java))
+                    this.dismiss()
+                }
+                R.id.navigation_settings -> {
+                    Toast.makeText(context, "Settings", Toast.LENGTH_SHORT).show()
+                    startActivity(Intent(context, SettingsActivity()::class.java))
+                    this.dismiss()
+                }
+                R.id.navigation_animations-> {
+                    Toast.makeText(context, "Animations", Toast.LENGTH_SHORT).show()
+                    startActivity(Intent(context, AnimationsActivity()::class.java))
+                    this.dismiss()
+                }
+                R.id.navigation_animations_bonus-> {
+                    Toast.makeText(context, "Animations (Bonus)", Toast.LENGTH_SHORT).show()
+                    startActivity(Intent(context, ActivityConstraintSetAnimation()::class.java))
                     this.dismiss()
                 }
             }
