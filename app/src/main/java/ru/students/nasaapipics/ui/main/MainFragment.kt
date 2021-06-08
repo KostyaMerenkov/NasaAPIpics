@@ -20,8 +20,9 @@ import ru.students.nasaapipics.R
 import ru.students.nasaapipics.api.NasaServerResponseData
 import ru.students.nasaapipics.api.NasaServerResults
 import ru.students.nasaapipics.databinding.MainFragmentBinding
-import ru.students.nasaapipics.navigation.main.BottomNavigationDrawerFragment
+import ru.students.nasaapipics.navigation.BottomNavigationDrawerFragment
 import ru.students.nasaapipics.ui.main.viewpager.ViewPagerActivity
+import ru.students.nasaapipics.ui.recyclerview.RecyclerViewActivity
 import java.time.LocalDate
 
 class MainFragment : Fragment() {
@@ -106,7 +107,10 @@ class MainFragment : Fragment() {
                 Toast.makeText(context, "Favourite", Toast.LENGTH_SHORT).show()
                 startActivity(Intent(context, ViewPagerActivity::class.java))
             }
-            R.id.app_bar_settings -> Toast.makeText(context, "Settings", Toast.LENGTH_SHORT).show()
+            R.id.app_bar_settings -> {
+                Toast.makeText(context, "Settings", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(context, RecyclerViewActivity::class.java))
+            }
             android.R.id.home -> {
                 activity?.let {
                     BottomNavigationDrawerFragment().show(parentFragmentManager, "tag")
