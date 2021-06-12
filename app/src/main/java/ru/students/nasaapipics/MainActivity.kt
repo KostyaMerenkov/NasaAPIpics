@@ -1,5 +1,6 @@
 package ru.students.nasaapipics
 
+import android.content.Intent
 import android.content.res.Resources
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -23,7 +24,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
+    }
 
+    override fun onBackPressed() {
+        super.onBackPressed()
     }
 
     private fun loadTheme() {
@@ -31,7 +35,7 @@ class MainActivity : AppCompatActivity() {
 
         val darkTheme = sp.getBoolean("dark_theme", false)
         val themes = sp.getString("themes", resources.getString(R.string.standard))
-        Toast.makeText(this, "darkTheme=$darkTheme", Toast.LENGTH_SHORT).show()
+        //Toast.makeText(this, "darkTheme=$darkTheme", Toast.LENGTH_SHORT).show()
         Toast.makeText(this, "theme=$themes", Toast.LENGTH_SHORT).show()
         if (darkTheme) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
