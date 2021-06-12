@@ -63,6 +63,7 @@ class MainFragment : Fragment() {
         vb.imageView.setOnClickListener {
             bottomSheetBehavior.state = BottomSheetBehavior.STATE_HALF_EXPANDED
         }
+        //TODO: Сделать анимацию увеличения изображения при нажатии на него.
     }
 
     private fun setChips() {
