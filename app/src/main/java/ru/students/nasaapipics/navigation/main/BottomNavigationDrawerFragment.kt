@@ -64,6 +64,21 @@ class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
                     dialog?.dismiss()
                     startForResult.launch(Intent(context, SettingsActivity::class.java))
                 }
+                R.id.navigation_settings -> {
+                    Toast.makeText(context, "Settings", Toast.LENGTH_SHORT).show()
+                    startActivity(Intent(context, SettingsActivity()::class.java))
+                    this.dismiss()
+                }
+                R.id.navigation_animations-> {
+                    Toast.makeText(context, "Animations", Toast.LENGTH_SHORT).show()
+                    startActivity(Intent(context, AnimationsActivity()::class.java))
+                    this.dismiss()
+                }
+                R.id.navigation_animations_bonus-> {
+                    Toast.makeText(context, "Animations (Bonus)", Toast.LENGTH_SHORT).show()
+                    startActivity(Intent(context, ActivityConstraintSetAnimation()::class.java))
+                    this.dismiss()
+                }
             }
             true
         }

@@ -28,6 +28,7 @@
     <string name="standard">Стандартная</string>
     <string name="orange">Оранжевая</string>
     <string name="blue">Синяя</string>
+  
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="Animations">Анимации</string>
