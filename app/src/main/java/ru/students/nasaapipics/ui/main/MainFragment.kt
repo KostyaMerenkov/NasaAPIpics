@@ -2,9 +2,17 @@ package ru.students.nasaapipics.ui.main
 
 import android.content.DialogInterface
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.Typeface.BOLD
+import android.graphics.Typeface.BOLD_ITALIC
 import android.net.Uri
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.ForegroundColorSpan
+import android.text.style.StyleSpan
+import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
 import android.widget.Toast
@@ -24,6 +32,7 @@ import ru.students.nasaapipics.navigation.BottomNavigationDrawerFragment
 import ru.students.nasaapipics.ui.main.viewpager.ViewPagerActivity
 import ru.students.nasaapipics.ui.recyclerview.RecyclerViewActivity
 import java.time.LocalDate
+import java.util.regex.Pattern
 
 class MainFragment : Fragment() {
 
@@ -196,9 +205,26 @@ class MainFragment : Fragment() {
                 vb.imageView.visibility = View.VISIBLE
             }
         }
+        //val words = listOf("space", "NASA", "Mars",
+        //    "Earth","Planet", "Star", "Stars")
 
+        //vb.bottomSheetInclude.bottomSheetDescription.text = serverResponseData.explanation
+        vb.bottomSheetInclude.bottomSheetContainer.visibility = View.VISIBLE
+        val text = serverResponseData.explanation
+
+        val pattern = Pattern.compile("moon|space|nasa|mars|earth|stars", Pattern.CASE_INSENSITIVE).toRegex()
+        val span = SpannableString(text)
+        val matchResult = pattern.findAll(text.toString())
+        matchResult.forEach { match ->
+            span.setSpan(
+                ForegroundColorSpan(Color.BLUE),
+                match.range.first,
+                match.range.last+1,
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+            )
+        }
         vb.bottomSheetInclude.bottomSheetDescriptionHeader.text = serverResponseData.title
-        vb.bottomSheetInclude.bottomSheetDescription.text = serverResponseData.explanation
+        vb.bottomSheetInclude.bottomSheetDescription.text = span
         vb.bottomSheetInclude.bottomSheetContainer.visibility = View.VISIBLE
     }
 
