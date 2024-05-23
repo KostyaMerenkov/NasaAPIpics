@@ -23,17 +23,18 @@ class SplashActivity : AppCompatActivity() {
         vb = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(vb.root)
 
-        vb.imageView.animate().setStartDelay(300).rotationBy(720f).setInterpolator(DecelerateInterpolator())
+        vb.imageView.animate().setStartDelay(300).rotationBy(720f)
+            .setInterpolator(DecelerateInterpolator())
             .setDuration(2700).setListener(object : Animator.AnimatorListener {
-                override fun onAnimationEnd(animation: Animator?) {
+                override fun onAnimationEnd(animation: Animator) {
                     handler.removeCallbacksAndMessages(null)
                     startActivity(Intent(this@SplashActivity, MainActivity::class.java))
                     finish()
                 }
 
-                override fun onAnimationRepeat(animation: Animator?) {}
-                override fun onAnimationCancel(animation: Animator?) {}
-                override fun onAnimationStart(animation: Animator?) {}
+                override fun onAnimationRepeat(animation: Animator) {}
+                override fun onAnimationCancel(animation: Animator) {}
+                override fun onAnimationStart(animation: Animator) {}
             })
 
         handler.postDelayed({

@@ -4,8 +4,8 @@ import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.activity_recycler_item_note.view.*
 import ru.students.nasaapipics.R
 
 class RecyclerViewAdapter(private val data: MutableList<Notes>) :
@@ -49,8 +49,8 @@ class RecyclerViewAdapter(private val data: MutableList<Notes>) :
 
         fun bind(data: Notes) {
             if (layoutPosition != RecyclerView.NO_POSITION) {
-                itemView.title.text = data.header
-                itemView.body.text = data.text
+                itemView.findViewById<TextView>(R.id.title).text = data.header
+                itemView.findViewById<TextView>(R.id.body).text = data.text
                 //itemView.setOnClickListener { onListItemClickListener.onItemClick(data) }
             }
         }
